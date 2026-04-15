@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Morning Brief</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         max-width: 680px; margin: 60px auto; padding: 0 24px; line-height: 1.6; color: #222; }
+  h1 { font-size: 2rem; }
+  h2 { margin-top: 32px; }
+  a { color: #0366d6; }
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid #eee;
+           color: #888; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p><em>Last updated: April 2026</em></p>
+
+<h2>Overview</h2>
+<p>
+  Morning Brief ("the Application") is a personal automation tool built and
+  used solely by Mike Cain. It is not offered as a product or service to other
+  users. This privacy policy is published because Google Cloud Console requires
+  a privacy policy URL for OAuth applications, even single-user ones.
+</p>
+
+<h2>Who operates this application</h2>
+<p>
+  Mike Cain, acting as an individual. Contact:
+  <a href="mailto:mykalcain@gmail.com">mykalcain@gmail.com</a>.
+</p>
+
+<h2>What data the Application accesses</h2>
+<p>
+  The Application uses Google OAuth to access the following scopes on Mike
+  Cain's own Google accounts, and no one else's:
+</p>
+<ul>
+  <li><strong>Gmail (gmail.modify):</strong> Read inbox messages and create
+    draft replies in the Drafts folder. The Application does not delete or
+    modify existing messages.</li>
+  <li><strong>Gmail (gmail.send):</strong> Send a single daily briefing email
+    from Mike Cain's account to Mike Cain's own email address.</li>
+  <li><strong>Google Calendar (calendar):</strong> Read today's calendar events
+    and free/busy windows to propose available meeting times in draft replies.
+    The Application does not create, modify, or delete calendar events.</li>
+</ul>
+
+<h2>How data is stored and used</h2>
+<p>
+  The Application runs locally on a Mac mini owned and operated by Mike Cain.
+  Data flows:
+</p>
+<ul>
+  <li>OAuth refresh tokens are stored locally on disk at
+    <code>~/.config/morning-brief/</code> with file permissions restricted to
+    the owner (chmod 600). They are never transmitted except to Google's OAuth
+    servers for token refresh.</li>
+  <li>Email metadata (subject, sender, snippet) and calendar events are read
+    into memory at runtime, passed to the Anthropic Claude API and the Tavily
+    web-search API for processing, then discarded when the process exits.</li>
+  <li>A local JSON file at
+    <code>~/.config/morning-brief/drafts_history.json</code> records which
+    draft emails the Application has previously created, to avoid duplicates.
+    This file contains draft metadata (recipient, subject, category) but no
+    message bodies.</li>
+</ul>
+
+<h2>Third parties</h2>
+<p>
+  The Application sends data to two third parties as part of its normal
+  operation:
+</p>
+<ul>
+  <li><strong>Anthropic</strong> — email metadata and calendar context are sent
+    to the Claude API to classify emails and draft replies. Anthropic's privacy
+    policy: <a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a></li>
+  <li><strong>Tavily</strong> — search queries (not email content) are sent to
+    the Tavily news search API. Tavily's privacy policy:
+    <a href="https://tavily.com/privacy">tavily.com/privacy</a></li>
+</ul>
+
+<h2>Data retention</h2>
+<p>
+  Email and calendar data are not retained beyond the duration of each run
+  (approximately 2 minutes). The drafts history file is retained locally until
+  Mike Cain deletes it.
+</p>
+
+<h2>Data sharing</h2>
+<p>
+  The Application does not share any data with any third party except the
+  Anthropic and Tavily APIs described above, and Google itself.
+</p>
+
+<h2>Google API Services User Data Policy compliance</h2>
+<p>
+  Morning Brief's use and transfer of information received from Google APIs
+  adheres to the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">
+  Google API Services User Data Policy</a>, including the Limited Use
+  requirements.
+</p>
+
+<h2>Changes to this policy</h2>
+<p>
+  This policy may be updated from time to time. The "Last updated" date at the
+  top reflects the most recent revision.
+</p>
+
+<h2>Contact</h2>
+<p>
+  For any questions about this privacy policy, contact Mike Cain at
+  <a href="mailto:mykalcain@gmail.com">mykalcain@gmail.com</a>.
+</p>
+
+<p><a href="index.html">← Back to home</a></p>
+
+<footer>
+  &copy; 2026 Mike Cain
+</footer>
+
+</body>
+</html>
